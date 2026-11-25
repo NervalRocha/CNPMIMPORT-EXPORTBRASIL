@@ -1,0 +1,83 @@
+html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Trade | Importação e Exportação</title>
+    <script src="https://jsdelivr.net"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+
+    <!-- Navbar -->
+    <nav class="bg-slate-900 text-white p-4 sticky top-0 z-50 shadow-md">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-xl font-bold tracking-wider">GLOBAL<span class="text-emerald-500">TRADE</span></a>
+            <div class="space-x-6 hidden md:flex">
+                <a href="#servicos" class="hover:text-emerald-400 transition">Serviços</a>
+                <a href="#sobre" class="hover:text-emerald-400 transition">Sobre Nós</a>
+                <a href="#cotacao" class="bg-emerald-600 hover:bg-emerald-500 px-4 py-2 rounded text-sm font-semibold transition">Solicitar Cotação</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative bg-slate-900 text-white py-24 px-4 text-center overflow-hidden">
+        <div class="absolute inset-0 opacity-20 bg-cover bg-center" style="background-image: url('https://unsplash.com');"></div>
+        <div class="relative max-w-3xl mx-auto space-y-6">
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">Conectando seu negócio ao mercado global</h1>
+            <p class="text-lg text-slate-300">Soluções completas de importação, exportação e desembaraço aduaneiro com máxima eficiência logística.</p>
+            <a href="#cotacao" class="inline-block bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-8 py-3 rounded-lg shadow-lg transition transform hover:-translate-y-0.5">Fale com um Especialista</a>
+        </div>
+    </header>
+
+    <!-- Serviços -->
+    <section id="servicos" class="py-16 px-4 max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-center text-slate-900 mb-12">Nossas Soluções Globais</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Importação -->
+            <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition">
+                <div class="text-emerald-600 text-3xl mb-4">📥</div>
+                <h3 class="text-xl font-bold mb-3">Assessoria em Importação</h3>
+                <p class="text-slate-600 leading-relaxed">Habilitação no Radar Siscomex, busca e homologação de fornecedores internacionais, e acompanhamento completo do desembaraço alfandegário.</p>
+            </div>
+            <!-- Exportação -->
+            <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition">
+                <div class="text-emerald-600 text-3xl mb-4">📤</div>
+                <h3 class="text-xl font-bold mb-3">Soluções de Exportação</h3>
+                <p class="text-slate-600 leading-relaxed">Análise de viabilidade de mercado internacional, logística de ponta a ponta (frete marítimo e aéreo) e emissão de documentação de comércio exterior.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulário de Cotação -->
+    <section id="cotacao" class="bg-slate-900 text-white py-16 px-4">
+        <div class="max-w-2xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-4">Solicite uma Cotação de Frete</h2>
+            <p class="text-center text-slate-400 mb-8">Preencha os dados básicos da sua carga para receber uma análise preliminar de custos.</p>
+            
+            <form class="space-y-4 text-slate-900">
+                <div class="grid grid-cols-2 gap-4">
+                    <input type="text" placeholder="Nome" class="p-3 rounded bg-white w-full" required>
+                    <input type="email" placeholder="E-mail" class="p-3 rounded bg-white w-full" required>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <select class="p-3 rounded bg-white w-full">
+                        <option>Operação: Importação</option>
+                        <option>Operação: Exportação</option>
+                    </select>
+                    <input type="text" placeholder="Origem / Destino (Cidades/Países)" class="p-3 rounded bg-white w-full" required>
+                </div>
+                <textarea placeholder="Descrição da mercadoria, peso aproximado e volume..." rows="4" class="p-3 rounded bg-white w-full" required></textarea>
+                <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded transition">Enviar Solicitação</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-500 text-center py-6 text-sm">
+        <p>&copy; 2026 Global Trade Logistics. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
