@@ -1,46 +1,48 @@
-html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Global Nexus | Comércio Exterior & Logística Internacional</title>
-    <!-- Versão Estável do Tailwind CSS Homologada para o GitHub Pages -->
-    <script src="https://tailwindcss.com"></script>
+    <!-- Script do Tailwind CSS Corrigido e Atualizado -->
+    <script src="https://jsdelivr.net"></script>
     <style>
-        /* Garante que o comportamento das abas funcione perfeitamente */
+        /* Sistema que controla a troca de abas sem carregar a página */
         .page-content { display: none; }
-        .page-content.active { display: block; }
+        .page-content.active { display: block; animation: fadeIn 0.4s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body class="bg-slate-900 text-slate-100 font-sans antialiased">
 
-    <!-- Header / Navegação Principal -->
-    <header class="bg-slate-950/90 border-b border-slate-800 fixed top-0 w-full z-50">
+    <!-- Menu Superior Fixo com Desfoque de Vidro -->
+    <header class="bg-slate-950/90 backdrop-blur-md border-b border-slate-800 fixed top-0 w-full z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logotipo -->
             <div class="flex items-center space-x-3">
                 <div class="bg-emerald-500 text-slate-950 p-2 rounded-lg font-black tracking-wider text-xl">GN</div>
                 <span class="text-xl font-bold tracking-tight text-white">GLOBAL<span class="text-emerald-400 font-light">NEXUS</span></span>
             </div>
-            <!-- Menu com botões interativos reais -->
+            <!-- Links de Navegação Interativos -->
             <nav class="hidden md:flex space-x-8 text-sm font-medium">
-                <button onclick="changeTab('home')" id="btn-home" class="text-emerald-400 font-semibold cursor-pointer">Início</button>
-                <button onclick="changeTab('servicos')" id="btn-servicos" class="text-slate-300 hover:text-emerald-400 transition cursor-pointer">Serviços</button>
-                <button onclick="changeTab('sobre')" id="btn-sobre" class="text-slate-300 hover:text-emerald-400 transition cursor-pointer">Sobre Nós</button>
-                <button onclick="changeTab('contato')" id="btn-contato" class="text-slate-300 hover:text-emerald-400 transition cursor-pointer">Contato</button>
+                <button onclick="switchPage('home')" id="btn-home" class="text-emerald-400 hover:text-emerald-300 transition cursor-pointer font-bold">Início</button>
+                <button onclick="switchPage('servicos')" id="btn-servicos" class="text-slate-300 hover:text-emerald-400 transition cursor-pointer">Serviços</button>
+                <button onclick="switchPage('sobre')" id="btn-sobre" class="text-slate-300 hover:text-emerald-400 transition cursor-pointer">Sobre Nós</button>
+                <button onclick="switchPage('contato')" id="btn-contato" class="text-slate-300 hover:text-emerald-400 transition cursor-pointer">Contato</button>
             </nav>
-            <button onclick="changeTab('contato')" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-5 py-2.5 rounded-lg text-sm transition transform hover:scale-105 shadow-lg shadow-emerald-500/20 cursor-pointer">
+            <!-- Botão de Ação Direta -->
+            <button onclick="switchPage('contato')" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-5 py-2.5 rounded-lg text-sm transition transform hover:scale-105 cursor-pointer shadow-lg shadow-emerald-500/20">
                 Cotação Rápida
             </button>
         </div>
     </header>
 
-    <!-- ÁREA DE CONTEÚDO DINÂMICO -->
+    <!-- ÁREA DAS PÁGINAS -->
     <main class="pt-20">
 
-        <!-- ABA 1: INÍCIO (Abre por padrão) -->
-        <section id="page-home" class="page-content active">
-            <!-- Hero Banner Premium com Imagem de Fundo de Alta Resolução -->
+        <!-- [PÁGINA 1]: INÍCIO -->
+        <div id="home" class="page-content active">
+            <!-- Hero com Imagem de Navio em Alta Resolução de Fundo -->
             <div class="relative bg-slate-950 py-32 px-4 overflow-hidden min-h-[75vh] flex items-center">
                 <div class="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-luminosity" style="background-image: url('https://unsplash.com');"></div>
                 <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent"></div>
@@ -54,18 +56,18 @@ html
                         Assessoria completa em Importação e Exportação com inteligência aduaneira, redução de custos fiscais e monitoramento de carga em tempo real.
                     </p>
                     <div class="pt-4 flex flex-wrap gap-4">
-                        <button onclick="changeTab('servicos')" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-8 py-4 rounded-xl transition shadow-lg cursor-pointer">Conhecer Soluções</button>
-                        <button onclick="changeTab('contato')" class="border border-slate-700 hover:border-slate-500 text-white font-medium px-8 py-4 rounded-xl transition bg-slate-900/50 cursor-pointer">Falar com Consultor</button>
+                        <button onclick="switchPage('servicos')" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-8 py-4 rounded-xl transition shadow-lg cursor-pointer">Conhecer Soluções</button>
+                        <button onclick="switchPage('contato')" class="border border-slate-700 hover:border-slate-500 text-white font-medium px-8 py-4 rounded-xl transition bg-slate-900/50 cursor-pointer">Falar com Consultor</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Painel de Dados Corporativos (Gera Confiança) -->
+            <!-- Indicadores de Autoridade e Confiança -->
             <div class="bg-slate-950 border-y border-slate-800 py-12">
                 <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                     <div>
                         <div class="text-3xl sm:text-4xl font-extrabold text-emerald-400">+R$ 2B</div>
-                        <div class="text-xs sm:text-sm text-slate-400 uppercase tracking-wider mt-1">Cargas Movimentadas</div>
+                        <div class="text-xs sm:text-sm text-slate-400 uppercase tracking-wider mt-1">Em Cargas Movimentadas</div>
                     </div>
                     <div>
                         <div class="text-3xl sm:text-4xl font-extrabold text-white">99.4%</div>
@@ -81,52 +83,50 @@ html
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-
-        <!-- ABA 2: SERVIÇOS -->
-        <section id="page-servicos" class="page-content py-20 px-4 max-w-7xl mx-auto">
+        <!-- [PÁGINA 2]: SERVIÇOS -->
+        <div id="servicos" class="page-content py-20 px-4 max-w-7xl mx-auto">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Soluções Corporativas Focadas em Resultados</h2>
-                <p class="text-slate-400 text-base sm:text-lg">Atuamos de ponta a ponta para garantir conformidade jurídica e eficiência financeira em suas operações mundiais.</p>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Soluções Corporativas de Alto Impacto</h2>
+                <p class="text-slate-400 text-base sm:text-lg">Atuamos de ponta a ponta para garantir conformidade jurídica e eficiência financeira em suas operações de comércio exterior.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Card 1 - Importação -->
-                <div class="bg-slate-950 border border-slate-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition duration-300">
-                    <img src="https://unsplash.com" alt="Importação marítima" class="h-48 w-full object-cover">
+                <!-- Card Importação -->
+                <div class="bg-slate-950 border border-slate-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition duration-300 shadow-xl">
+                    <img src="https://unsplash.com" alt="Importação" class="h-48 w-full object-cover">
                     <div class="p-6 space-y-4">
-                        <span class="bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-full text-xs font-semibold inline-block">Módulo Importação</span>
+                        <div class="bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-full text-xs font-semibold inline-block">Módulo Importação</div>
                         <h3 class="text-xl font-bold text-white">Gestão de Importação</h3>
                         <p class="text-slate-400 text-sm leading-relaxed">Habilitação no Radar Siscomex, análise de NCM, pleitos de Ex-tarifário e total gerenciamento do desembaraço aduaneiro focado em elisão fiscal.</p>
                     </div>
                 </div>
-                <!-- Card 2 - Exportação -->
-                <div class="bg-slate-950 border border-slate-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition duration-300">
-                    <img src="https://unsplash.com" alt="Containers de Exportação" class="h-48 w-full object-cover">
+                <!-- Card Exportação -->
+                <div class="bg-slate-950 border border-slate-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition duration-300 shadow-xl">
+                    <img src="https://unsplash.com" alt="Exportação" class="h-48 w-full object-cover">
                     <div class="p-6 space-y-4">
-                        <span class="bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-full text-xs font-semibold inline-block">Módulo Exportação</span>
+                        <div class="bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-full text-xs font-semibold inline-block">Módulo Exportação</div>
                         <h3 class="text-xl font-bold text-white">Logística de Exportação</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">Estudo de viabilidade em mercados internacionais, emissão de Certificados de Origem e coordenação de frete internacional.</p>
+                        <p class="text-slate-400 text-sm leading-relaxed">Estudo de viabilidade em mercados internacionais, emissão de Certificados de Origem, coordenação de frete internacional marítimo/aéreo e aduana.</p>
                     </div>
                 </div>
-                <!-- Card 3 - Compliance -->
-                <div class="bg-slate-950 border border-slate-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition duration-300">
-                    <img src="https://unsplash.com" alt="Consultoria e contratos" class="h-48 w-full object-cover">
+                <!-- Card Consultoria -->
+                <div class="bg-slate-950 border border-slate-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition duration-300 shadow-xl">
+                    <img src="https://unsplash.com" alt="Compliance" class="h-48 w-full object-cover">
                     <div class="p-6 space-y-4">
-                        <span class="bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-full text-xs font-semibold inline-block">Consultoria Legal</span>
+                        <div class="bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-full text-xs font-semibold inline-block">Consultoria Legal</div>
                         <h3 class="text-xl font-bold text-white">Compliance Aduaneiro</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">Auditoria de processos passados, blindagem jurídica contra autuações fiscais e assessoria integral para certificação OEA.</p>
+                        <p class="text-slate-400 text-sm leading-relaxed">Auditoria de processos passados, blindagem jurídica contra autuações da Receita Federal e assessoria integral para certificação OEA.</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-
-        <!-- ABA 3: SOBRE NÓS -->
-        <section id="page-sobre" class="page-content py-20 bg-slate-950">
+        <!-- [PÁGINA 3]: SOBRE NÓS -->
+        <div id="sobre" class="page-content py-20 bg-slate-950">
             <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
                 <div class="space-y-6">
                     <span class="text-emerald-400 text-sm font-semibold uppercase tracking-widest">Nossa Infraestrutura</span>
                     <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Segurança jurídica e excelência operacional de ponta a ponta</h2>
-                    <p class="text-slate-300 leading-relaxed">
+
